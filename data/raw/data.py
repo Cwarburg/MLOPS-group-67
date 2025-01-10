@@ -2,7 +2,7 @@ from datasets import load_dataset
 import pandas as pd
 
 # Load the IMDB dataset
-dataset = load_dataset("stanfordnlp/imdb")
+dataset = load_dataset("stanfordnlp/imdb", cache_dir="data/raw")
 
 # Check the dataset structure
 print(dataset)
