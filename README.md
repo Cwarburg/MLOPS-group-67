@@ -1,6 +1,21 @@
-# mlopsgroup67
 
-yet to come
+# MLOPS Project Description - NLP Sentiment Analysis of iMBd reviews
+
+s224959 Sofus Carstens
+s204701 Lukas Raad
+s225083 Christian Warburg
+
+## Overall goal for the project
+
+The goal of this project is to solve a binary classification task whether a review is negative or positve.
+
+## Framework for our project
+
+To solve this classification task we plan to use the hugging face Transformers repo. More specifically a pretrained model with a classification head (BERT)
+
+## Dataset (might change)
+
+We are using the IMDb dataset from Hugging Face. Each sample in the dataset consists of a movie review along with a binary sentiment label indicating whether the review is positive (1) or negative (0). The dataset is widely used for sentiment analysis tasks and includes reviews of varying lengths and complexities. The dataset was chosen because it provides a balanced and comprehensive set of text samples for exploring Natural Language Processing techniques. Its straightforward binary classification task makes it well-suited for developing and evaluating machine learning models in a limited timeframe.
 
 ## Project structure
 
