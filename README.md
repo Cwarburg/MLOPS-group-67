@@ -1,5 +1,5 @@
 
-# MLOPS Project Description - NLP Sentiment Analysis of iMBd reviews
+# MLOPS Project Description - NLP Sentiment Analysis of iMDB reviews
 
 s224959 Sofus Carstens //
 s204701 Lukas Raad //
