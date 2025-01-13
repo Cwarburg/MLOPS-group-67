@@ -1,0 +1,9 @@
+Map: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25000/25000 [00:10<00:00, 2394.84 examples/s]
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/christianwarburg/Desktop/MLOps-Project-Group-67/.venv/lib/python3.10/site-packages/transformers/training_args.py:1575: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+[34m[1mwandb[0m: [33mWARNING[0m The `run_name` is currently set to the same value as `TrainingArguments.output_dir`. If this was not intended, please specify a different run name by setting the `TrainingArguments.run_name` parameter.
+  3%|███▍                                                                                                           | 289/9375 [02:09<51:34,  2.94it/s]                 
+{'loss': 0.6933, 'grad_norm': 9.332898139953613, 'learning_rate': 1.9786666666666668e-05, 'epoch': 0.03}
+{'loss': 0.6791, 'grad_norm': 3.9878365993499756, 'learning_rate': 1.9573333333333335e-05, 'epoch': 0.06}

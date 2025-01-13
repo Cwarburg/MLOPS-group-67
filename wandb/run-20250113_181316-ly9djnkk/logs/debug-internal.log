@@ -1,0 +1,15 @@
+{"time":"2025-01-13T18:13:16.527954+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.2","symlink path":"/Users/christianwarburg/Desktop/MLOps-Project-Group-67/wandb/run-20250113_181316-ly9djnkk/logs/debug-core.log"}
+{"time":"2025-01-13T18:13:16.640983+01:00","level":"INFO","msg":"created new stream","id":"ly9djnkk"}
+{"time":"2025-01-13T18:13:16.641207+01:00","level":"INFO","msg":"stream: started","id":"ly9djnkk"}
+{"time":"2025-01-13T18:13:16.64123+01:00","level":"INFO","msg":"handler: started","stream_id":"ly9djnkk"}
+{"time":"2025-01-13T18:13:16.641595+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"ly9djnkk"}
+{"time":"2025-01-13T18:13:16.641613+01:00","level":"INFO","msg":"sender: started","stream_id":"ly9djnkk"}
+{"time":"2025-01-13T18:13:16.989175+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-13T18:15:14.98673+01:00","level":"INFO","msg":"stream: closing","id":"ly9djnkk"}
+{"time":"2025-01-13T18:15:14.987178+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-13T18:15:14.989721+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-13T18:15:15.708085+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-13T18:15:16.067255+01:00","level":"INFO","msg":"handler: closed","stream_id":"ly9djnkk"}
+{"time":"2025-01-13T18:15:16.067308+01:00","level":"INFO","msg":"sender: closed","stream_id":"ly9djnkk"}
+{"time":"2025-01-13T18:15:16.067292+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"ly9djnkk"}
+{"time":"2025-01-13T18:15:16.068707+01:00","level":"INFO","msg":"stream: closed","id":"ly9djnkk"}

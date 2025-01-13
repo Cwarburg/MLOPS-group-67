@@ -5,10 +5,16 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "accelerate>=1.2.1",
     "datasets>=3.2.0",
     "huggingface>=0.0.1",
+    "kagglehub>=0.3.6",
+    "lightning>=2.5.0.post0",
     "matplotlib>=3.10.0",
     "numpy>=2.2.1",
     "pandas>=2.2.3",
     "torch>=2.5.1",
+    "transformers>=4.48.0",
+    "typer>=0.15.1",
+    "wandb>=0.19.2",
 ]

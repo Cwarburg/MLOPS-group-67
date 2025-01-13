@@ -1,0 +1,44 @@
+{
+  "os":  "macOS-14.6.1-arm64-arm-64bit",
+  "python":  "CPython 3.10.15",
+  "startedAt":  "2025-01-13T17:10:30.915967Z",
+  "program":  "/Users/christianwarburg/Desktop/MLOps-Project-Group-67/src/mlopsgroup67/train.py",
+  "codePath":  "src/mlopsgroup67/train.py",
+  "git":  {
+    "remote":  "https://github.com/Cwarburg/MLOPS-group-67.git",
+    "commit":  "888acee901c0d2cd04afa469157a3776c411d95c"
+  },
+  "email":  "chrwar02@gmail.com",
+  "root":  "/Users/christianwarburg/Desktop/MLOps-Project-Group-67",
+  "host":  "BatBook",
+  "executable":  "/Users/christianwarburg/Desktop/MLOps-Project-Group-67/.venv/bin/python",
+  "codePathLocal":  "src/mlopsgroup67/train.py",
+  "cpu_count":  8,
+  "cpu_count_logical":  8,
+  "disk":  {
+    "/":  {
+      "total":  "245107195904",
+      "used":  "203024904192"
+    },
+    "/System/Volumes/Data":  {
+      "total":  "245107195904",
+      "used":  "203024904192"
+    }
+  },
+  "memory":  {
+    "total":  "8589934592"
+  },
+  "cpu":  {
+    "count":  8,
+    "countLogical":  8
+  },
+  "apple":  {
+    "name":  "Apple M2",
+    "ecpuCores":  4,
+    "pcpuCores":  4,
+    "gpuCores":  8,
+    "memoryGb":  8,
+    "swapTotalBytes":  "6442450944",
+    "ramTotalBytes":  "8589934592"
+  }
+}

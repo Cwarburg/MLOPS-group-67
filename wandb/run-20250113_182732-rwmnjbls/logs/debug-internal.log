@@ -1,0 +1,11 @@
+{"time":"2025-01-13T18:27:32.802968+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.2","symlink path":"/Users/christianwarburg/Desktop/MLOps-Project-Group-67/wandb/run-20250113_182732-rwmnjbls/logs/debug-core.log"}
+{"time":"2025-01-13T18:27:32.919245+01:00","level":"INFO","msg":"created new stream","id":"rwmnjbls"}
+{"time":"2025-01-13T18:27:32.91962+01:00","level":"INFO","msg":"stream: started","id":"rwmnjbls"}
+{"time":"2025-01-13T18:27:32.919705+01:00","level":"INFO","msg":"handler: started","stream_id":"rwmnjbls"}
+{"time":"2025-01-13T18:27:32.919875+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"rwmnjbls"}
+{"time":"2025-01-13T18:27:32.919894+01:00","level":"INFO","msg":"sender: started","stream_id":"rwmnjbls"}
+{"time":"2025-01-13T18:27:33.331157+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-13T18:29:52.443568+01:00","level":"INFO","msg":"stream: closing","id":"rwmnjbls"}
+{"time":"2025-01-13T18:29:52.443982+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-13T18:29:52.466538+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-13T18:29:53.541012+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}

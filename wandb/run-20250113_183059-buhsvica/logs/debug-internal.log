@@ -1,0 +1,7 @@
+{"time":"2025-01-13T18:31:00.24656+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.2","symlink path":"/Users/christianwarburg/Desktop/MLOps-Project-Group-67/wandb/run-20250113_183059-buhsvica/logs/debug-core.log"}
+{"time":"2025-01-13T18:31:00.36257+01:00","level":"INFO","msg":"created new stream","id":"buhsvica"}
+{"time":"2025-01-13T18:31:00.362957+01:00","level":"INFO","msg":"stream: started","id":"buhsvica"}
+{"time":"2025-01-13T18:31:00.363005+01:00","level":"INFO","msg":"handler: started","stream_id":"buhsvica"}
+{"time":"2025-01-13T18:31:00.363206+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"buhsvica"}
+{"time":"2025-01-13T18:31:00.363223+01:00","level":"INFO","msg":"sender: started","stream_id":"buhsvica"}
+{"time":"2025-01-13T18:31:00.736559+01:00","level":"INFO","msg":"Starting system monitor"}

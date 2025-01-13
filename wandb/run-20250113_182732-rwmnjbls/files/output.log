@@ -1,0 +1,26 @@
+Map: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25000/25000 [00:10<00:00, 2448.19 examples/s]
+Map: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████| 25000/25000 [00:10<00:00, 2307.37 examples/s]
+Map: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50000/50000 [00:23<00:00, 2157.77 examples/s]
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at bert-base-uncased and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/Users/christianwarburg/Desktop/MLOps-Project-Group-67/.venv/lib/python3.10/site-packages/transformers/training_args.py:1575: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+[34m[1mwandb[0m: [33mWARNING[0m The `run_name` is currently set to the same value as `TrainingArguments.output_dir`. If this was not intended, please specify a different run name by setting the `TrainingArguments.run_name` parameter.
+  2%|██▋                                                                                                                           | 202/9375 [01:24<1:18:34,  1.95it/s]Traceback (most recent call last):
+{'loss': 0.7001, 'grad_norm': 5.322745323181152, 'learning_rate': 1.9786666666666668e-05, 'epoch': 0.03}
+{'loss': 0.6723, 'grad_norm': 5.478241920471191, 'learning_rate': 1.9573333333333335e-05, 'epoch': 0.06}
+  File "/Users/christianwarburg/Desktop/MLOps-Project-Group-67/src/mlopsgroup67/train.py", line 91, in <module>
+    train_model()
+  File "/Users/christianwarburg/Desktop/MLOps-Project-Group-67/src/mlopsgroup67/train.py", line 80, in train_model
+    trainer.train()
+  File "/Users/christianwarburg/Desktop/MLOps-Project-Group-67/.venv/lib/python3.10/site-packages/transformers/trainer.py", line 2171, in train
+    return inner_training_loop(
+  File "/Users/christianwarburg/Desktop/MLOps-Project-Group-67/.venv/lib/python3.10/site-packages/transformers/trainer.py", line 2566, in _inner_training_loop
+    _grad_norm = self.accelerator.clip_grad_norm_(
+  File "/Users/christianwarburg/Desktop/MLOps-Project-Group-67/.venv/lib/python3.10/site-packages/accelerate/accelerator.py", line 2399, in clip_grad_norm_
+    return torch.nn.utils.clip_grad_norm_(parameters, max_norm, norm_type=norm_type)
+  File "/Users/christianwarburg/Desktop/MLOps-Project-Group-67/.venv/lib/python3.10/site-packages/torch/nn/utils/clip_grad.py", line 30, in _no_grad_wrapper
+    return func(*args, **kwargs)
+  File "/Users/christianwarburg/Desktop/MLOps-Project-Group-67/.venv/lib/python3.10/site-packages/torch/nn/utils/clip_grad.py", line 122, in clip_grad_norm_
+    g.mul_(clip_coef_clamped_device)
+KeyboardInterrupt

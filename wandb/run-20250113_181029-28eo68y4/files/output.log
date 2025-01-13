@@ -1,0 +1,25 @@
+Map:   0%|                                                                                                                             | 0/25000 [00:00<?, ? examples/s]
+Traceback (most recent call last):
+  File "/Users/christianwarburg/Desktop/MLOps-Project-Group-67/src/mlopsgroup67/train.py", line 91, in <module>
+    train_model()
+  File "/Users/christianwarburg/Desktop/MLOps-Project-Group-67/src/mlopsgroup67/train.py", line 47, in train_model
+    datasets = load_imdb_dataset(model_checkpoint=model_checkpoint)
+  File "/Users/christianwarburg/Desktop/MLOps-Project-Group-67/src/mlopsgroup67/data.py", line 36, in load_imdb_dataset
+    encoded_datasets = raw_datasets.map(tokenize_function, batched=True)
+  File "/Users/christianwarburg/Desktop/MLOps-Project-Group-67/.venv/lib/python3.10/site-packages/datasets/dataset_dict.py", line 886, in map
+    {
+  File "/Users/christianwarburg/Desktop/MLOps-Project-Group-67/.venv/lib/python3.10/site-packages/datasets/dataset_dict.py", line 887, in <dictcomp>
+    k: dataset.map(
+  File "/Users/christianwarburg/Desktop/MLOps-Project-Group-67/.venv/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 560, in wrapper
+    out: Union["Dataset", "DatasetDict"] = func(self, *args, **kwargs)
+  File "/Users/christianwarburg/Desktop/MLOps-Project-Group-67/.venv/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 3073, in map
+    for rank, done, content in Dataset._map_single(**dataset_kwargs):
+  File "/Users/christianwarburg/Desktop/MLOps-Project-Group-67/.venv/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 3476, in _map_single
+    batch = apply_function_on_filtered_inputs(
+  File "/Users/christianwarburg/Desktop/MLOps-Project-Group-67/.venv/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 3338, in apply_function_on_filtered_inputs
+    processed_inputs = function(*fn_args, *additional_args, **fn_kwargs)
+  File "/Users/christianwarburg/Desktop/MLOps-Project-Group-67/src/mlopsgroup67/data.py", line 33, in tokenize_function
+    return tokenizer(examples["review"], truncation=True, padding="max_length", max_length=max_length)
+  File "/Users/christianwarburg/Desktop/MLOps-Project-Group-67/.venv/lib/python3.10/site-packages/datasets/formatting/formatting.py", line 277, in __getitem__
+    value = self.data[key]
+KeyError: 'review'

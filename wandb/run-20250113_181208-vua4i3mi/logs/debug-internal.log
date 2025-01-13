@@ -1,0 +1,15 @@
+{"time":"2025-01-13T18:12:08.818861+01:00","level":"INFO","msg":"stream: starting","core version":"0.19.2","symlink path":"/Users/christianwarburg/Desktop/MLOps-Project-Group-67/wandb/run-20250113_181208-vua4i3mi/logs/debug-core.log"}
+{"time":"2025-01-13T18:12:08.934026+01:00","level":"INFO","msg":"created new stream","id":"vua4i3mi"}
+{"time":"2025-01-13T18:12:08.934247+01:00","level":"INFO","msg":"stream: started","id":"vua4i3mi"}
+{"time":"2025-01-13T18:12:08.934285+01:00","level":"INFO","msg":"handler: started","stream_id":"vua4i3mi"}
+{"time":"2025-01-13T18:12:08.934594+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"vua4i3mi"}
+{"time":"2025-01-13T18:12:08.934631+01:00","level":"INFO","msg":"sender: started","stream_id":"vua4i3mi"}
+{"time":"2025-01-13T18:12:09.31204+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-01-13T18:12:15.944873+01:00","level":"INFO","msg":"stream: closing","id":"vua4i3mi"}
+{"time":"2025-01-13T18:12:15.945268+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-01-13T18:12:15.946599+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-01-13T18:12:16.648781+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-01-13T18:12:16.953292+01:00","level":"INFO","msg":"handler: closed","stream_id":"vua4i3mi"}
+{"time":"2025-01-13T18:12:16.953319+01:00","level":"INFO","msg":"sender: closed","stream_id":"vua4i3mi"}
+{"time":"2025-01-13T18:12:16.953306+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"vua4i3mi"}
+{"time":"2025-01-13T18:12:16.954377+01:00","level":"INFO","msg":"stream: closed","id":"vua4i3mi"}
