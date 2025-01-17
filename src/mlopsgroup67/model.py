@@ -30,7 +30,8 @@ class IMDBTransformer(LightningModule):
     
     def test_step(self, batch, batch_idx):
         b_input_ids = batch[0]
-        b_labels = batch[1]
+        b_input_mask = batch[1]
+        b_labels = batch[2]
         (test_loss, logits) = self.model(
             b_input_ids,
             token_type_ids=None,
@@ -41,4 +42,11 @@ class IMDBTransformer(LightningModule):
         correct = (preds == b_labels).sum()
         accuracy = correct / len(b_labels)
     
-        return {"loss": test_loss, "preds": preds, "labels": b_labels}
+        return {"loss": test_loss, "accurace": accuracy, "preds": preds, "labels": b_labels}
+    
+    def setup(self, stage=None) -> None:
+        pass
+
+    # Define configure_optimizers function for defining which optimizer to use in training
+
+    # Define save_jit to save deployable model to .pt file  
