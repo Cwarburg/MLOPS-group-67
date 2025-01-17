@@ -1,0 +1,30 @@
+{
+  "os": "Windows-10-10.0.22631-SP0",
+  "python": "CPython 3.10.16",
+  "startedAt": "2025-01-16T17:25:49.892663Z",
+  "program": "c:\\Users\\LukasRaad\\github\\MLOPS-group-67\\lukas_tests.py",
+  "codePath": "lukas_tests.py",
+  "git": {
+    "remote": "https://github.com/Cwarburg/MLOPS-group-67.git",
+    "commit": "2dd38224790a20980a775531c51a6906e5a8b6c8"
+  },
+  "root": "C:\\Users\\LukasRaad\\github\\MLOPS-group-67",
+  "host": "DK-LUR-T14",
+  "executable": "C:\\Users\\LukasRaad\\anaconda3\\envs\\MLOps\\python.exe",
+  "codePathLocal": "lukas_tests.py",
+  "cpu_count": 10,
+  "cpu_count_logical": 12,
+  "disk": {
+    "/": {
+      "total": "509722226688",
+      "used": "220629254144"
+    }
+  },
+  "memory": {
+    "total": "34016727040"
+  },
+  "cpu": {
+    "count": 10,
+    "countLogical": 12
+  }
+}

@@ -1,6 +1,6 @@
 import pytest
 from datasets import DatasetDict, Dataset
-from mlopsgroup67.data import load_imdb_dataset
+from mlopsgroup67.data.make_dataset import load_imdb_dataset
 
 
 def test_load_imdb_dataset():

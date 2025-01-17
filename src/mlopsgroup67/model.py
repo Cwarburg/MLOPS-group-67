@@ -1,36 +1,44 @@
-# src/mlopsgroup67/model.py
+import torch
+from pytorch_lightning import LightningModule
+from omegaconf import DictConfig
+from transformers import AutoTokenizer, DataCollatorWithPadding, BertForSequenceClassification, TrainingArguments, Trainer
 
-"""
-model.py
+class IMDBTransformer(LightningModule):
 
-This module defines functions to create/configure a Transformer-based model
-for sequence classification. All training logic should be done in train.py, 
-and evaluation logic in evaluate.py.
-"""
+    def __init__(self, config: DictConfig):
+        super().__init__()
+        self.config = config
+        self.model = BertForSequenceClassification.from_pretrained("distilbert/distilbert-base-uncased", 
+                                                                        num_labels = 2, 
+                                                                        num_labels = 2)
+    def forward(self, batch):
+        b_inputs_ids = batch
+        return self.model(b_inputs_ids, token_type_ids=None, attention_mask=b_input_mask)
+    
+    def training_step(self, batch, batch_idx):
+        b_input_ids = batch[0]
+        b_input_mask = batch[1]
+        b_labels = batch[2]
 
-from transformers import AutoModelForSequenceClassification
-models = ['tiny-bert',"bert-base-uncased"]
-def create_model(model_checkpoint: str = 'tiny-bert', num_labels: int = 2):
-    """
-    Creates a sequence classification model from a pretrained checkpoint.
-
-    Args:
-        model_checkpoint (str): The name or path of a Hugging Face model checkpoint.
-                               e.g. "bert-base-uncased" or "distilbert-base-uncased".
-        num_labels (int): Number of output labels for the classification task.
-                          For IMDB sentiment analysis, this is 2 (positive/negative).
-
-    Returns:
-        model (transformers.PreTrainedModel): An AutoModelForSequenceClassification instance
-                                             ready to be trained.
-    """
-    model = AutoModelForSequenceClassification.from_pretrained(
-        model_checkpoint,
-        num_labels=num_labels
-    )
-    return model
-
-
-
-
-
+        (loss, _) = self.model(
+            b_input_ids, 
+            token_type_ids = None,
+            attention_mask = b_input_mask,
+            labels = b_labels
+        )
+        return loss
+    
+    def test_step(self, batch, batch_idx):
+        b_input_ids = batch[0]
+        b_labels = batch[1]
+        (test_loss, logits) = self.model(
+            b_input_ids,
+            token_type_ids=None,
+            attention_mask=b_input_mask,
+            labels=b_labels,
+        )
+        preds = torch.argmax(logits, dim=1)
+        correct = (preds == b_labels).sum()
+        accuracy = correct / len(b_labels)
+    
+        return {"loss": test_loss, "preds": preds, "labels": b_labels}
