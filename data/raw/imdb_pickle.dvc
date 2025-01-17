@@ -1,0 +1,6 @@
+outs:
+- md5: caa646854f6d95acb211d82821392180.dir
+  size: 65866612
+  nfiles: 2
+  hash: md5
+  path: imdb_pickle
