@@ -1,47 +1,34 @@
-# src/project_name/data.py
+#!/usr/bin/env python3
 
-"""
-data.py
-
-This module handles loading and preprocessing of the IMDB dataset using Hugging Face Datasets.
-"""
-
+import os
 from datasets import load_dataset
-from transformers import AutoTokenizer
+import pandas as pd
 
-def load_imdb_dataset(model_checkpoint: str = "bert-base-uncased", max_length: int = 8):
-    """
-    Loads the IMDB dataset from Hugging Face Datasets, tokenizes the texts, and returns
-    the dataset in a PyTorch-ready format.
-
-    Args:
-        model_checkpoint (str): Name of the Hugging Face model checkpoint to use for tokenization.
-        max_length (int): Maximum sequence length for tokenization.
-
-    Returns:
-        encoded_datasets (DatasetDict): A Hugging Face DatasetDict with 'train' and 'test' splits,
-                                        containing tokenized input_ids, attention_mask, and labels.
-    """
-    # 1. Load raw IMDB dataset
-    raw_datasets = load_dataset("imdb")
-
-    # 2. Load tokenizer
-    tokenizer = AutoTokenizer.from_pretrained(model_checkpoint)
-
-    # 3. Tokenizer function
-    def tokenize_function(examples):
-        return tokenizer(examples["text"], truncation=True, padding="max_length", max_length=max_length)
-
-    # 4. Apply tokenizer to the dataset
-    encoded_datasets = raw_datasets.map(tokenize_function, batched=True)
-
-    # 5. Set format to PyTorch
-    encoded_datasets.set_format("torch", columns=["input_ids", "attention_mask", "label"])
-
-    return encoded_datasets
-
+def main():
+    # 1. Load all splits of the IMDB dataset.
+    #    - If you're using "stanfordnlp/imdb" and getting 'unsupervised' errors, 
+    #      either remove the unsupervised split, or use ignore_verifications=True.
+    full_dataset = load_dataset("stanfordnlp/imdb")  # or "stanfordnlp/imdb"
+    
+    # 2. Remove the unsupervised split if you don't need it.
+    #full_dataset.pop("unsupervised", None)
+    
+    # 3. Create an output directory for pickle files.
+    output_dir = "data/raw/imdb_pickle"
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # 4. Convert each split to a pandas DataFrame and save as pickle.
+    for split_name, dataset_split in full_dataset.items():
+        print(f"Converting {split_name} split to pandas and saving as pickle...")
+        
+        # Convert to pandas
+        df = dataset_split.to_pandas()
+        
+        # Save as .pkl
+        pickle_path = os.path.join(output_dir, f"{split_name}.pkl")
+        df.to_pickle(pickle_path)
+        
+        print(f"  -> Saved {split_name} split to {pickle_path}")
 
 if __name__ == "__main__":
-    # Simple test of dataset loading
-    ds = load_imdb_dataset()
-    print(ds)
+    main()
