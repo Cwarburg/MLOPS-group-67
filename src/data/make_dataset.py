@@ -20,6 +20,7 @@ def load_imdb_dataset(config : DictConfig) -> None :
 
     def preprocess_function(examples):
         return tokenizer(examples["text"], padding = 'max_length', truncation = True)
+    
     tokenized_imdb = imdb.map(preprocess_function, batched=True) # Has features : text, label, input_ids, attention_mask
     
     train = os.path.join(dataset_path, "processed", "train_tokenized.pkl")
@@ -36,4 +37,4 @@ def load_imdb_dataset(config : DictConfig) -> None :
         pickle.dump(tokenized_imdb['unsupervised'], f)
 
 if __name__ == "__main__":
-    load_imdb_dataset
+    load_imdb_dataset()
