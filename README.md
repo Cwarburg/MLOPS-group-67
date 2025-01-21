@@ -144,37 +144,36 @@ started with Machine Learning Operations (MLOps).
 >
 > Answer:
 
---- question 1 fill here ---
+67
 
 ### Question 2
 > **Enter the study number for each member in the group**
 >
-> Example:
+> 
 >
-> *sXXXXXX, sXXXXXX, sXXXXXX*
+> 
 >
 > Answer:
 
---- question 2 fill here ---
+204701, s225083, sXXXXXX
 
 ### Question 3
 > **A requirement to the project is that you include a third-party package not covered in the course. What framework**
 > **did you choose to work with and did it help you complete the project?**
 >
 > Recommended answer length: 100-200 words.
->
-> Example:
-> *We used the third-party framework ... in our project. We used functionality ... and functionality ... from the*
-> *package to do ... and ... in our project*.
->
 > Answer:
 
---- question 3 fill here ---
+To accurately classify the IMDB movie reviews, we used the [Transformers](https://huggingface.co/docs/transformers/en/index)
+framework by huggingface. This framework allowed us to used a pretrained model which we could finetune, and also had a
+autotokenizer function which allowed us to effectevly convert the reviews to tokens. We experimented with some of the models, but ended
+up using the Distilbert-uncased model, because of its ability.
+
 
 ## Coding environment
 
 > In the following section we are interested in learning more about you local development environment. This includes
-> how you managed dependencies, the structure of your code and how you managed code quality.
+> how you managed dependencies, the structure of your code and how you managed code quality. 
 
 ### Question 4
 
@@ -183,13 +182,10 @@ started with Machine Learning Operations (MLOps).
 >
 > Recommended answer length: 100-200 words
 >
-> Example:
-> *We used ... for managing our dependencies. The list of dependencies was auto-generated using ... . To get a*
-> *complete copy of our development environment, one would have to run the following commands*
->
 > Answer:
 
---- question 4 fill here ---
+We used 'uv' to manage the dependencies. If a new group member were to join the project, they would have to run the command
+'uv venv', which looks at the 'pyproject.toml' file and copies the dependencies. 
 
 ### Question 5
 
@@ -198,14 +194,10 @@ started with Machine Learning Operations (MLOps).
 >
 > Recommended answer length: 100-200 words
 >
-> Example:
-> *From the cookiecutter template we have filled out the ... , ... and ... folder. We have removed the ... folder*
-> *because we did not use any ... in our project. We have added an ... folder that contains ... for running our*
-> *experiments.*
->
 > Answer:
 
---- question 5 fill here ---
+We deviated from the template by removing the subfolder from the 'src' folder. We did this so it would look cleaner. 
+Otherwise we thought that the template matched accurately with our project, and decided to keep it as it were for the most part.
 
 ### Question 6
 
