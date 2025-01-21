@@ -10,7 +10,8 @@ class IMDBTransformer(LightningModule):
         super().__init__()
         self.config = config
         self.model = BertForSequenceClassification.from_pretrained("distilbert/distilbert-base-uncased", 
-                                                                        num_labels = 2)
+                                                                   torchscript = True,
+                                                                   num_labels = 2)
     
     def forward(self, batch):
         b_inputs_ids = batch[0]
@@ -26,8 +27,9 @@ class IMDBTransformer(LightningModule):
             b_input_ids, 
             token_type_ids = None,
             attention_mask = b_input_mask,
-            labels = b_labels
+            labels = b_labels,
         )
+
         return loss
     
     def test_step(self, batch, batch_idx):
@@ -50,5 +52,29 @@ class IMDBTransformer(LightningModule):
         pass
 
     # Define configure_optimizers function for defining which optimizer to use in training
+    def configure_optimizers(self) -> tuple[list[torch.optim.Optimizer], list[object]]:
+        if self.config.train["optimizer"] == "AdamW":
+            optimizer = torch.optim.AdamW(
+                self.parameters(),
+                lr = float(self.config.train["lr"]),
+                eps = float(self.config.train["eps"]),
+                betas = (0.9, 0.999)
+            )
+        else: 
+            raise ValueError("Unknown Optim")
+        
+        if self.config.train["scheduler"]["name"] == "ExponentialLR":
+            scheduler = torch.optim.lr_scheduler.ExponentialLR(
+                optimizer, gamma=self.config.train["scheduler"]["gamma"]
+            )
+        else:
+            raise ValueError("Unknown Scheduler")
+        return [optimizer], [scheduler]
 
-    # Define save_jit to save deployable model to .pt file  
+    # Define save_jit to save deployable model to .pt file
+    def save_jit(self, file: str = "deployable_model.pt") -> None:
+        token_len = self.config["build_features"]["max_sequence_length"]
+        tokens_tensor = torch.ones(1, token_len).long()
+        mask_tensor = torch.ones(1, token_len).float()
+        script_model = torch.jit.trace(self.model, [tokens_tensor, mask_tensor])
+        script_model.save(file)

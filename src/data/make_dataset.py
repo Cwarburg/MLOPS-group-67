@@ -33,7 +33,7 @@ def main(config : DictConfig) -> None :
         pickle.dump(tokenized_imdb['test'], f)
 
     with open(eval, 'wb') as f:
-        pickle.dump(tokenized_imdb['unsupervized'], f)
+        pickle.dump(tokenized_imdb['unsupervised'], f)
 
 # if __name__ == "__main__":
 #     project_dir = Path(__file__).resolve().parents[2]

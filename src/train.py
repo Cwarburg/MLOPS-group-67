@@ -14,14 +14,15 @@ import wandb
 from omegaconf import DictConfig
 from pytorch_lightning import Trainer
 
-from src.data.dataset import IMDBReviewsModule
-from src.model import IMDBTransformer
+# from src.data.dataset import IMDBReviewsModule
+from data.dataset import IMDBReviewsModule
+from model import IMDBTransformer
 
-@hydra.main(config_path="../../config", config_name="default_config.yaml")
+@hydra.main(config_path="../configs", config_name="default_config.yaml")
 def main(config: DictConfig):
     
     data_module = IMDBReviewsModule(os.path.join(hydra.utils.get_original_cwd(), 
-                                                 config.data_path), 
+                                                 config.data.path), 
                                     batch_size=config.train.batch_size)
     data_module.setup()
     model = IMDBTransformer(config)
@@ -35,7 +36,6 @@ def main(config: DictConfig):
 
     trainer = Trainer(
         max_epochs = config.train.epochs,
-        gpus=gpus,
         val_check_interval=1.0,
         check_val_every_n_epoch=1,
         gradient_clip_val=1.0,
@@ -47,9 +47,8 @@ def main(config: DictConfig):
         val_dataloaders=data_module.test_dataloader(),
     )
 
-if __name__=="__main__":
+if __name__ == "__main__":
 
     project_dir = Path(__file__).resolve().parents[2]
-    # load_dotenv(find_dotenv())
 
     main()

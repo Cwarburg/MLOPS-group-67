@@ -1,0 +1,16 @@
+model:
+  model: distilbert
+  pretrained-model: distilbert-base-uncased
+  num_labels: 2
+  batch_size: 2
+train:
+  optimizer: AdamW
+  lr: 6.0e-05
+  eps: 1.0e-08
+  batch_size: 16
+  epochs: 20
+  scheduler:
+    name: ExponentialLR
+    gamma: 0.1
+data:
+  path: data
