@@ -23,6 +23,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -r requirements_dev.txt
+    - name: Download Hugging Face Dataset
+      run: | 
+        python -c "from datasets import load_dataset; 
+        load_dataset('imdb');
+        "
     - name: Test with pytest
       run: |
         pytest -v
