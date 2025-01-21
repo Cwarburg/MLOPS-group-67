@@ -1,3 +1,4 @@
 model: 'distilbert'
 pretrained-model: 'distilbert-base-uncased'
 num_labels: 2
+batch_size : 2

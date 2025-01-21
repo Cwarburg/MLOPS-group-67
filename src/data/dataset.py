@@ -9,11 +9,17 @@ from torch.utils.data import DataLoader
 from torch.utils.data.dataset import Dataset
 
 class IMDBReviews(Dataset):
+    """
+    Dataset class that loads the files created by make_dataset.py
+    """
+
     def __init__(self, path: str, type : str = "train"):
         if type == "train":
             file = os.path.join(path, "train_tokenized.pkl")
         elif type == "test":
             file = os.path.join(path, "test_tokenized.pkl")
+        elif type == "eval":
+            file = os.path.join(path, "eval_tokenized.pkl")
         else:
             raise Exception(f"Unknown Dataset type : {type}")
 
@@ -35,7 +41,9 @@ class IMDBReviews(Dataset):
         )
 
 class IMDBReviewsModule(pl.LightningDataModule):
+    
     def __init__(self, data_path : str, batch_size : int = 32):
+
         super().__init__()
         self.data_path = os.path.join(data_path, "processed")
         self.batch_size = batch_size
@@ -48,6 +56,7 @@ class IMDBReviewsModule(pl.LightningDataModule):
     def setup(self, stage : Optional[str] = None) -> None:
         self.trainset = IMDBReviews(self.data_path, "train")
         self.testset = IMDBReviews(self.data_path, "test")
+        self.evalset = IMDBReviews(self.data_path, "eval")
         
     def train_dataloader(self) -> DataLoader:
         return DataLoader(
@@ -57,4 +66,9 @@ class IMDBReviewsModule(pl.LightningDataModule):
     def test_dataloader(self) -> DataLoader:
         return DataLoader(
             self.testset, batch_size = self.batch_size, num_workers=self.cpu_cnt
+        )
+    
+    def val_dataloader(self) -> DataLoader:
+        return DataLoader(
+            self.evalset, batch_size=self.batch_size, num_workers=self.cpu_cnt
         )
