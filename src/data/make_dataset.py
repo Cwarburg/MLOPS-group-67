@@ -12,7 +12,7 @@ from transformers import AutoTokenizer
 
 
 @hydra.main(config_path="../../configs", config_name="default_config.yaml")
-def main(config : DictConfig) -> None :
+def load_imdb_dataset(config : DictConfig) -> None :
 
     dataset_path = os.path.join(hydra.utils.get_original_cwd(), config.data.path)
     imdb = load_dataset("imdb")
@@ -35,6 +35,5 @@ def main(config : DictConfig) -> None :
     with open(eval, 'wb') as f:
         pickle.dump(tokenized_imdb['unsupervised'], f)
 
-# if __name__ == "__main__":
-#     project_dir = Path(__file__).resolve().parents[2]
-main()
+if __name__ == "__main__":
+    load_imdb_dataset

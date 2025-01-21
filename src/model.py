@@ -9,7 +9,7 @@ class IMDBTransformer(LightningModule):
     def __init__(self, config: DictConfig):
         super().__init__()
         self.config = config
-        self.model = BertForSequenceClassification.from_pretrained("distilbert/distilbert-base-uncased", 
+        self.model = BertForSequenceClassification.from_pretrained(self.config.model["pretrained-model"], 
                                                                    torchscript = True,
                                                                    num_labels = 2)
     

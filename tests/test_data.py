@@ -1,30 +1,30 @@
+import os
 import pytest
-from datasets import DatasetDict, Dataset
-from mlopsgroup67.data.make_dataset import load_imdb_dataset
 
+from hydra import compose, initialize
 
+from src.data.dataset import IMDBReviewsModule
+from tests import _PATH_DATA, _PROJECT_ROOT
+
+@pytest.mark.skipif(
+    not os.path.exists(_PATH_DATA + "/processed")
+    or not os.path.exists(_PROJECT_ROOT + "/configs"),
+    reason="Data and config files not found",
+)
 def test_load_imdb_dataset():
     """Test the load_imdb_dataset function."""
     # Call the function with default arguments
-    dataset = load_imdb_dataset()
+    with initialize("../configs/", version_base=None):
+        config = compose(config_name="default_config.yaml")
+        data_module = IMDBReviewsModule(_PATH_DATA, batch_size=config.train.batch_size)
+        data_module.setup()
 
-    # Ensure the returned object is a DatasetDict
-    assert isinstance(dataset, DatasetDict), "load_imdb_dataset should return a DatasetDict."
+        train_loader = data_module.train_dataloader()
+        val_loader = data_module.val_dataloader()
+        test_loader = data_module.test_dataloader()
 
-    # Check if the 'train' and 'test' splits exist
-    assert "train" in dataset, "The dataset should contain a 'train' split."
-    assert "test" in dataset, "The dataset should contain a 'test' split."
+        train_set_len = len(train_loader.dataset)
+        val_set_len = len(val_loader.dataset)
+        test_set_len = len(test_loader.dataset)
 
-    # Check if the splits contain data
-    assert len(dataset["train"]) > 0, "The 'train' split should not be empty."
-    assert len(dataset["test"]) > 0, "The 'test' split should not be empty."
-
-    # Check the format and columns of the dataset
-    train_sample = dataset["train"][0]
-    assert "input_ids" in train_sample, "Each example should have 'input_ids'."
-    assert "attention_mask" in train_sample, "Each example should have 'attention_mask'."
-    assert "label" in train_sample, "Each example should have 'label'."
-
-    # Ensure the splits are instances of Hugging Face's Dataset
-    assert isinstance(dataset["train"], Dataset), "The 'train' split should be a Hugging Face Dataset."
-    assert isinstance(dataset["test"], Dataset), "The 'test' split should be a Hugging Face Dataset."
+        assert train_set_len + val_set_len + test_set_len == 100000
