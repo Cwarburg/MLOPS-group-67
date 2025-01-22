@@ -5,9 +5,10 @@ from hydra import compose, initialize
 
 from src.data.dataset import IMDBReviewsModule
 from tests import _PATH_DATA, _PROJECT_ROOT
+from src.data.make_testdata import load_test_dataset
 
 @pytest.mark.skipif(
-    not os.path.exists(_PATH_DATA + "/processed")
+    not os.path.exists(_PATH_DATA)
     or not os.path.exists(_PROJECT_ROOT + "/configs"),
     reason="Data and config files not found",
 )
@@ -15,8 +16,10 @@ def test_load_imdb_dataset():
     """Test the load_imdb_dataset function."""
     # Call the function with default arguments
     with initialize("../configs/", version_base=None):
+        
         config = compose(config_name="default_config.yaml")
-        data_module = IMDBReviewsModule(_PATH_DATA, batch_size=config.train.batch_size)
+        load_test_dataset(config)
+        data_module = IMDBReviewsModule(os.path.join(_PATH_DATA), batch_size=config.train.batch_size)
         data_module.setup()
 
         train_loader = data_module.train_dataloader()

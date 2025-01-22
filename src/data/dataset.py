@@ -43,7 +43,6 @@ class IMDBReviews(Dataset):
 class IMDBReviewsModule(pl.LightningDataModule):
     
     def __init__(self, data_path : str, batch_size : int = 32):
-
         super().__init__()
         self.data_path = os.path.join(data_path, "processed")
         self.batch_size = batch_size
