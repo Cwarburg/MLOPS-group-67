@@ -47,6 +47,8 @@ def main(config: DictConfig):
         val_dataloaders=data_module.test_dataloader(),
     )
 
+    model.save_jit()
+    
 if __name__ == "__main__":
 
     project_dir = Path(__file__).resolve().parents[2]
