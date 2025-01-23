@@ -30,6 +30,7 @@ class IMDBReviews(Dataset):
         self.masks = torch.tensor(data['attention_mask'])
         self.labels = torch.tensor(data['label'])
 
+
     def __len__(self) -> int:
         return len(self.reviews)
 
@@ -37,7 +38,7 @@ class IMDBReviews(Dataset):
         return (
             self.reviews[idx],
             self.masks[idx],
-            self.labels[idx]
+            self.labels[idx],
         )
 
 class IMDBReviewsModule(pl.LightningDataModule):
@@ -59,15 +60,15 @@ class IMDBReviewsModule(pl.LightningDataModule):
         
     def train_dataloader(self) -> DataLoader:
         return DataLoader(
-            self.trainset, batch_size = self.batch_size, num_workers=self.cpu_cnt
+            self.trainset, batch_size = self.batch_size, num_workers=self.cpu_cnt, persistent_workers=True,
         )
     
     def test_dataloader(self) -> DataLoader:
         return DataLoader(
-            self.testset, batch_size = self.batch_size, num_workers=self.cpu_cnt
+            self.testset, batch_size = self.batch_size, num_workers=self.cpu_cnt, persistent_workers=True,
         )
     
     def val_dataloader(self) -> DataLoader:
         return DataLoader(
-            self.evalset, batch_size=self.batch_size, num_workers=self.cpu_cnt
+            self.evalset, batch_size=self.batch_size, num_workers=self.cpu_cnt, persistent_workers=True,
         )

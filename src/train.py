@@ -18,7 +18,7 @@ from pytorch_lightning import Trainer
 from data.dataset import IMDBReviewsModule
 from model import IMDBTransformer
 
-@hydra.main(config_path="../configs", config_name="default_config.yaml")
+@hydra.main(config_path="../configs", config_name="default_config.yaml", version_base=None)
 def main(config: DictConfig):
     
     data_module = IMDBReviewsModule(os.path.join(hydra.utils.get_original_cwd(), 
@@ -48,7 +48,7 @@ def main(config: DictConfig):
     )
 
     model.save_jit()
-    
+
 if __name__ == "__main__":
 
     project_dir = Path(__file__).resolve().parents[2]

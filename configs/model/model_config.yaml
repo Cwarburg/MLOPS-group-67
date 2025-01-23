@@ -1,4 +1,4 @@
 model: 'distilbert'
-pretrained-model: 'distilbert-base-uncased'
+pretrained-model: 'prajjwal1/bert-tiny'
 num_labels: 2
 batch_size : 2
