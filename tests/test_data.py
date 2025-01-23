@@ -5,6 +5,7 @@ from hydra import compose, initialize
 
 from src.data.dataset import IMDBReviewsModule
 from tests import _PATH_DATA, _PROJECT_ROOT
+
 from src.data.make_testdata import load_test_dataset
 
 @pytest.mark.skipif(
