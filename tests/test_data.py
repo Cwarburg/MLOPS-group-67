@@ -6,7 +6,7 @@ from hydra import compose, initialize
 from src.data.dataset import IMDBReviewsModule
 from tests import _PATH_DATA, _PROJECT_ROOT
 
-from src.data.make_dataset import load_imdb_dataset
+from src.data.make_testdata import load_test_dataset
 
 @pytest.mark.skipif(
     not os.path.exists(_PATH_DATA)
@@ -20,7 +20,7 @@ def test_load_imdb_dataset():
         
         config = compose(config_name="default_config.yaml")
 
-        load_imdb_dataset(config)
+        load_test_dataset(config)
 
         data_module = IMDBReviewsModule(os.path.join(_PATH_DATA), batch_size=config.train.batch_size)
         data_module.setup()

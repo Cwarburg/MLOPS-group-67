@@ -67,7 +67,10 @@ def main(config: DictConfig):
 
     logger.info("Predicting...")
     start_time = time()
-    y_pred = model(data.reviews[:20])
+
+    
+    with torch.no_grad():
+        y_pred = model([data.reviews[:20], data.masks[:20]])
     y_pred_np = y_pred.logits.detach().numpy()
     output_prediction_file = os.path.join(output_prediction_dir, "predictions.csv")
     np.savetxt(output_prediction_file, y_pred_np, delimiter=",")

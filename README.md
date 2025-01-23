@@ -384,7 +384,7 @@ using the "docker desktop" app to make sure it worked.
 >
 > Answer:
 
---- question 16 fill here ---
+Usually, we use the VS Code debugger tool in order to debug our code. This allows us to step through the code line by line after specifying a line to stop at. Then we can also make use of the debug console to check the datatypes, sizes etc of variables. 
 
 ## Working in the cloud
 

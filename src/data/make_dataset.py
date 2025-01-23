@@ -22,8 +22,7 @@ def load_imdb_dataset(config : DictConfig) -> None :
         return tokenizer(examples["text"], padding = 'max_length', truncation = True)
     
     tokenized_imdb = imdb.map(preprocess_function, batched=True) # Has features : text, label, input_ids, attention_mask
-    
-    tokenized_imdb.cleanup_cache_files()
+
 
     train = os.path.join(dataset_path, "processed", "train_tokenized.pkl")
     test = os.path.join(dataset_path, "processed", "test_tokenized.pkl")
