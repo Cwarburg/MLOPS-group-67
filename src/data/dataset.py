@@ -24,6 +24,7 @@ class IMDBReviews(Dataset):
             raise Exception(f"Unknown Dataset type : {type}")
 
         with open(file, 'rb') as f:
+            print(f)
             data = pickle.load(f)
 
         self.reviews = torch.tensor(data['input_ids']) 

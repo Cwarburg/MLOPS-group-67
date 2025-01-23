@@ -19,11 +19,11 @@ def test_load_imdb_dataset():
     with initialize("../configs/", version_base=None):
         
         config = compose(config_name="default_config.yaml")
-        load_test_dataset(config)
+
 
         data_module = IMDBReviewsModule(os.path.join(_PATH_DATA), batch_size=config.train.batch_size)
         data_module.setup()
-
+        print(os.path.join(_PATH_DATA))
         train_loader = data_module.train_dataloader()
         val_loader = data_module.val_dataloader()
         test_loader = data_module.test_dataloader()

@@ -37,7 +37,7 @@ def main(config: DictConfig):
     # Load model
     logger.info("Load model...")
     output_checkpoints_paths = os.path.join(
-        output_dir, "lightning_logs", "version_1", "checkpoints", "*.ckpt"
+        output_dir, "lightning_logs", "version_4", "checkpoints", "*.ckpt"
     )
     output_checkpoint_latest_path = sorted(
         filter(os.path.isfile, glob.glob(output_checkpoints_paths))
