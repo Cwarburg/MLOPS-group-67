@@ -359,6 +359,10 @@ Otherwise we thought that the template matched accurately with our project, and 
 >
 > Answer:
 
+For our project we built a docker file for our training file (train.py) using "docker build -f dockerfiles/train.dockerfile . -t train:latest". 
+Where the train.dockerfile defines what we need to RUN/COPY and pip install for the train.py to work. We then tested the docker image in a docker container locally 
+using the "docker desktop" app to make sure it worked.
+
 --- question 15 fill here ---
 
 ### Question 16
