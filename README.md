@@ -155,7 +155,7 @@ started with Machine Learning Operations (MLOps).
 >
 > Answer:
 
-204701, s225083, sXXXXXX
+s204701, s225083, sXXXXXX
 
 ### Question 3
 > **A requirement to the project is that you include a third-party package not covered in the course. What framework**
@@ -167,7 +167,7 @@ started with Machine Learning Operations (MLOps).
 To accurately classify the IMDB movie reviews, we used the [Transformers](https://huggingface.co/docs/transformers/en/index)
 framework by huggingface. This framework allowed us to used a pretrained model which we could finetune, and also had a
 autotokenizer function which allowed us to effectevly convert the reviews to tokens. We experimented with some of the models, but ended
-up using the Distilbert-uncased model, because of its ability.
+up using the tiny-bert model, because of it's small easy that could be trained quickly and it still had good results.
 
 
 ## Coding environment
@@ -197,7 +197,13 @@ We used 'uv' to manage the dependencies. If a new group member were to join the 
 > Answer:
 
 We deviated from the template by removing the subfolder from the 'src' folder. We did this so it would look cleaner. 
-Otherwise we thought that the template matched accurately with our project, and decided to keep it as it were for the most part.
+Otherwise we thought that the template matched accurately with our project, and decided to keep it as it were for the most part. 
+Of all the folders under the cookie cutter template, many were left empty. We mainly filled out
+
+* the src folder with all the model, train, prediction and data code
+* the tests folder with the defintions for our pytests
+* the configs with the config files we used for configuring everything
+* the data folder is there but we don't push any data to it since the files are too large for github
 
 ### Question 6
 
@@ -312,7 +318,7 @@ Otherwise we thought that the template matched accurately with our project, and 
 >
 > Answer:
 
---- question 12 fill here ---
+We use configuration files in order to run an experiment. We would go into the training configuration and define the necessary parameters. 
 
 ### Question 13
 
