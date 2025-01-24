@@ -10,9 +10,9 @@ s225083 Christian Warburg <br />
 Step 1: Create new virtual enviroment using `conda env create -f env.yml` <br />
 Step 2: Get requirements from `requirements.txt` file <br />
 Step 3: Configure experiment in the config files <br />
-Step 4: Run 'src/make_dataset.py` to download and create the imdb dataset <br />
-Step 5: Run `src/train.py´ to train the model <br />
-Step 6: Run the `src/predict.py`to run inference/test the model <br />
+Step 4: Run `src/make_dataset.py` to download and create the imdb dataset <br />
+Step 5: Run `src/train.py` to train the model <br />
+Step 6: Run the `src/predict.py` to run inference/test the model <br />
 
 ## Overall goal for the project
 
