@@ -5,6 +5,15 @@ s224959 Sofus Carstens //
 s204701 Lukas Raad //
 s225083 Christian Warburg //
 
+## How to run our project
+
+Step 1: Create new virtual enviroment using `conda env create -f env.yml` //
+Step 2: Get requirements from `requirements.txt` file //
+Step 3: Configure experiment in the config files //
+Step 4: Run 'src/make_dataset.py` to download and create the imdb dataset //
+Step 5: Run `src/train.py`to train the model //
+Step 6: Run the `src/predict.py`to run inference/test the model //
+
 ## Overall goal for the project
 
 The goal of this project is to solve a binary classification task whether a review is negative or positve.
