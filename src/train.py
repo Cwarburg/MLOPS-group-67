@@ -19,7 +19,7 @@ from model import IMDBTransformer
 @hydra.main(config_path="../configs", config_name="default_config.yaml", version_base=None)
 def main(config: DictConfig):
 
-    # 1. Initialize wandb logger. Customize "project" or "name" as you wish.
+    # Initialize wandb logger. Customize "project" or "name" as you wish.
     wandb_logger = WandbLogger(
         project="my-awesome-project",    # e.g. "IMDB-Sentiment"
         name="experiment-with-transformer"
@@ -28,17 +28,16 @@ def main(config: DictConfig):
     # (so you can see hyperparameters in the wandb UI)
     wandb_logger.experiment.config.update(dict(config))
 
-    # 2. Prepare data module
+    # Prepare data module
     data_module = IMDBReviewsModule(
         os.path.join(hydra.utils.get_original_cwd(), config.data.path),
         batch_size=config.train.batch_size
     )
     data_module.setup()
-
-    # 3. Define your model
+    
     model = IMDBTransformer(config)
 
-    # 4. Check GPU availability
+    # Check GPU availability
     gpus = 0
     if torch.cuda.is_available():
         print(f"Training on {torch.cuda.device_count()} GPUs.")
@@ -46,7 +45,7 @@ def main(config: DictConfig):
     else:
         print("Training on CPU.")
 
-    # 5. Create the trainer with the wandb logger
+    # Create the trainer with the wandb logger
     trainer = Trainer(
         max_epochs=config.train.epochs,
         val_check_interval=1.0,
