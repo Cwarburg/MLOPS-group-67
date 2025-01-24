@@ -9,3 +9,4 @@ pytest==8.3.4
 pytorch_lightning==2.5.0.post0
 torch==2.5.1
 transformers==4.48.0
+wandb==0.12.0
