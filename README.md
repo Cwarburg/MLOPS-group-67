@@ -1,18 +1,18 @@
 
 # MLOPS Project Description - NLP Sentiment Analysis of iMDB reviews
 
-s224959 Sofus Carstens //
-s204701 Lukas Raad //
-s225083 Christian Warburg //
+s224959 Sofus Carstens <br />
+s204701 Lukas Raad <br />
+s225083 Christian Warburg <br />
 
 ## How to run our project
 
-Step 1: Create new virtual enviroment using `conda env create -f env.yml` //
-Step 2: Get requirements from `requirements.txt` file //
-Step 3: Configure experiment in the config files //
-Step 4: Run 'src/make_dataset.py` to download and create the imdb dataset //
-Step 5: Run `src/train.py`to train the model //
-Step 6: Run the `src/predict.py`to run inference/test the model //
+Step 1: Create new virtual enviroment using `conda env create -f env.yml` <br />
+Step 2: Get requirements from `requirements.txt` file <br />
+Step 3: Configure experiment in the config files <br />
+Step 4: Run 'src/make_dataset.py` to download and create the imdb dataset <br />
+Step 5: Run `src/train.py`to train the model <br />
+Step 6: Run the `src/predict.py`to run inference/test the model <br />
 
 ## Overall goal for the project
 
