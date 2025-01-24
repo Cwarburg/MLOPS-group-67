@@ -6,11 +6,13 @@ from time import time
 
 import hydra
 import numpy as np
+import pandas as pd
 import omegaconf
 import torch.quantization
 # from dotenv import find_dotenv, load_dotenv
 from omegaconf import DictConfig
 from torch import nn
+from transformers import AutoTokenizer
 
 from data.dataset import IMDBReviewsModule
 from model import IMDBTransformer
@@ -68,12 +70,21 @@ def main(config: DictConfig):
     logger.info("Predicting...")
     start_time = time()
 
-    
-    with torch.no_grad():
-        y_pred = model([data.reviews[:20], data.masks[:20]])
-    y_pred_np = y_pred.logits.detach().numpy()
+    tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
+    reviews = [tokenizer.decode(token_ids, skip_special_tokens=True) for token_ids in data.reviews[:20]]
+    (y_pred,) = model([data.reviews[:20], data.masks[:20]], return_dict=False)
+    # y_pred_np = y_pred.logits.detach().numpy()
+    y_pred = torch.argmax(y_pred, dim=1)
+
     output_prediction_file = os.path.join(output_prediction_dir, "predictions.csv")
-    np.savetxt(output_prediction_file, y_pred_np, delimiter=",")
+    # output_data = np.column_stack((reviews, y_pred.numpy()))
+
+    df = pd.DataFrame({
+        'Review': reviews,
+        'Prediction': y_pred.numpy()
+    })
+    df.to_csv(output_prediction_file, index=False)
+    # np.savetxt(output_prediction_file, output_data, delimiter=",", fmt="%s")
 
     logger.info(
         "Predictions are finished in {} seconds!\n Saved to {}".format(

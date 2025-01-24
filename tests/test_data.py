@@ -17,7 +17,7 @@ def test_load_imdb_dataset():
     """Test the load_imdb_dataset function."""
     # Call the function with default arguments
     with initialize("../configs/", version_base=None):
-        
+
         config = compose(config_name="default_config.yaml")
 
         load_test_dataset(config)

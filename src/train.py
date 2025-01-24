@@ -1,4 +1,4 @@
-import os 
+import os
 from typing import Optional
 
 import logging
@@ -20,9 +20,9 @@ from model import IMDBTransformer
 
 @hydra.main(config_path="../configs", config_name="default_config.yaml", version_base=None)
 def main(config: DictConfig):
-    
-    data_module = IMDBReviewsModule(os.path.join(hydra.utils.get_original_cwd(), 
-                                                 config.data.path), 
+
+    data_module = IMDBReviewsModule(os.path.join(hydra.utils.get_original_cwd(),
+                                                 config.data.path),
                                     batch_size=config.train.batch_size)
     data_module.setup()
     model = IMDBTransformer(config)

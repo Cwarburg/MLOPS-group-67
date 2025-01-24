@@ -9,31 +9,31 @@ class IMDBTransformer(LightningModule):
     def __init__(self, config: DictConfig):
         super().__init__()
         self.config = config
-        self.model = BertForSequenceClassification.from_pretrained(self.config.model["pretrained-model"], 
+        self.model = BertForSequenceClassification.from_pretrained(self.config.model["pretrained-model"],
                                                                    torchscript = True,
                                                                    num_labels = 2)
-    
-    def forward(self, batch):
+
+    def forward(self, batch, return_dict=False):
 
         b_inputs_ids = batch[0]
         b_input_mask = batch[1]
 
-        return self.model(b_inputs_ids, token_type_ids=None, attention_mask=b_input_mask)
-    
+        return self.model(b_inputs_ids, token_type_ids=None, attention_mask=b_input_mask, return_dict=return_dict)
+
     def training_step(self, batch, batch_idx):
         b_input_ids = batch[0]
         b_input_mask = batch[1]
         b_labels = batch[2]
 
         (loss, _) = self.model(
-            b_input_ids, 
+            b_input_ids,
             token_type_ids = None,
             attention_mask = b_input_mask,
             labels = b_labels,
         )
         self.log("train_loss", loss)
         return loss
-    
+
     def test_step(self, batch, batch_idx):
 
         b_input_ids = batch[0]
@@ -52,7 +52,7 @@ class IMDBTransformer(LightningModule):
         self.log("test_accuracy", accuracy, prog_bar=True)
 
         return {"loss": test_loss, "preds": preds, "labels": b_labels}
-    
+
     def validation_step(self, batch, batch_idx, dataloader_idx=0):
         b_input_ids = batch[0]
         b_input_mask = batch[1]
@@ -83,9 +83,9 @@ class IMDBTransformer(LightningModule):
                 eps = float(self.config.train["eps"]),
                 betas = (0.9, 0.999)
             )
-        else: 
+        else:
             raise ValueError("Unknown Optim.")
-        
+
         if self.config.train["scheduler"]["name"] == "ExponentialLR":
             scheduler = torch.optim.lr_scheduler.ExponentialLR(
                 optimizer, gamma=self.config.train["scheduler"]["gamma"]

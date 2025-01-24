@@ -17,7 +17,7 @@ To solve this classification task we plan to use the hugging face Transformers r
 
 We are using the IMDb dataset from Hugging Face. Each sample in the dataset consists of a movie review along with a binary sentiment label indicating whether the review is positive (1) or negative (0). The dataset is widely used for sentiment analysis tasks and includes reviews of varying lengths and complexities. The dataset was chosen because it provides a balanced and comprehensive set of text samples for exploring Natural Language Processing techniques. Its straightforward binary classification task makes it well-suited for developing and evaluating machine learning models in a limited timeframe.
 
-## What deep learning models do you expect to use?  
+## What deep learning models do you expect to use?
 We plan to use **DistilBERT**, a lightweight transformer-based model designed for natural language understanding tasks. DistilBERT is a smaller, faster, and more efficient version of BERT, making it an ideal choice for our sentiment analysis task on the IMDb dataset. Its reduced size allows for quicker training and inference without significant loss in performance, making it feasible to implement within our timeframe while still leveraging the power of pre-trained transformer models.
 
 ## Project structure
@@ -103,8 +103,8 @@ started with Machine Learning Operations (MLOps).
 * [X] Calculate the code coverage (M16)
 * [ ] Get some continuous integration running on the GitHub repository (M17)
 * [ ] Add caching and multi-os/python/pytorch testing to your continuous integration (M17)
-* [ ] Add a linting step to your continuous integration (M17)
-* [ ] Add pre-commit hooks to your version control setup (M18)
+* [X] Add a linting step to your continuous integration (M17)
+* [X] Add pre-commit hooks to your version control setup (M18)
 * [ ] Add a continues workflow that triggers when data changes (M19)
 * [ ] Add a continues workflow that triggers when changes to the model registry is made (M19)
 * [ ] Create a data storage in GCP Bucket for your data and link this with your data version control setup (M21)
@@ -149,9 +149,9 @@ started with Machine Learning Operations (MLOps).
 ### Question 2
 > **Enter the study number for each member in the group**
 >
-> 
 >
-> 
+>
+>
 >
 > Answer:
 
@@ -173,7 +173,7 @@ up using the tiny-bert model, because of it's small easy that could be trained q
 ## Coding environment
 
 > In the following section we are interested in learning more about you local development environment. This includes
-> how you managed dependencies, the structure of your code and how you managed code quality. 
+> how you managed dependencies, the structure of your code and how you managed code quality.
 
 ### Question 4
 
@@ -185,7 +185,7 @@ up using the tiny-bert model, because of it's small easy that could be trained q
 > Answer:
 
 We used 'uv' to manage the dependencies. If a new group member were to join the project, they would have to run the command
-'uv venv', which looks at the 'pyproject.toml' file and copies the dependencies. 
+'uv venv', which looks at the 'pyproject.toml' file and copies the dependencies.
 
 ### Question 5
 
@@ -196,8 +196,8 @@ We used 'uv' to manage the dependencies. If a new group member were to join the 
 >
 > Answer:
 
-We deviated from the template by removing the subfolder from the 'src' folder. We did this so it would look cleaner. 
-Otherwise we thought that the template matched accurately with our project, and decided to keep it as it were for the most part. 
+We deviated from the template by removing the subfolder from the 'src' folder. We did this so it would look cleaner.
+Otherwise we thought that the template matched accurately with our project, and decided to keep it as it were for the most part.
 Of all the folders under the cookie cutter template, many were left empty. We mainly filled out
 
 * the src folder with all the model, train, prediction and data code
@@ -318,7 +318,7 @@ Of all the folders under the cookie cutter template, many were left empty. We ma
 >
 > Answer:
 
-We use configuration files in order to run an experiment. We would go into the training configuration and define the necessary parameters. 
+We use configuration files in order to run an experiment. We would go into the training configuration and define the necessary parameters.
 
 ### Question 13
 
@@ -365,8 +365,8 @@ We use configuration files in order to run an experiment. We would go into the t
 >
 > Answer:
 
-For our project we built a docker file for our training file (train.py) using "docker build -f dockerfiles/train.dockerfile . -t train:latest". 
-Where the train.dockerfile defines what we need to RUN/COPY and pip install for the train.py to work. We then tested the docker image in a docker container locally 
+For our project we built a docker file for our training file (train.py) using "docker build -f dockerfiles/train.dockerfile . -t train:latest".
+Where the train.dockerfile defines what we need to RUN/COPY and pip install for the train.py to work. We then tested the docker image in a docker container locally
 using the "docker desktop" app to make sure it worked.
 
 --- question 15 fill here ---
@@ -384,7 +384,7 @@ using the "docker desktop" app to make sure it worked.
 >
 > Answer:
 
-Usually, we use the VS Code debugger tool in order to debug our code. This allows us to step through the code line by line after specifying a line to stop at. Then we can also make use of the debug console to check the datatypes, sizes etc of variables. 
+Usually, we use the VS Code debugger tool in order to debug our code. This allows us to step through the code line by line after specifying a line to stop at. Then we can also make use of the debug console to check the datatypes, sizes etc of variables. Unfortunately, we did not reach to perform any profiling on our code, however, given the time we would have started by profiling the data loading files because that is where we feel the highest bottle neck was.
 
 ## Working in the cloud
 
@@ -604,4 +604,4 @@ Usually, we use the VS Code debugger tool in order to debug our code. This allow
 >
 > Answer:
 
---- question 31 fill here ---
+We all contributed equally to the project.

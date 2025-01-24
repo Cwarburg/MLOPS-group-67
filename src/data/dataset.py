@@ -1,4 +1,4 @@
-import os 
+import os
 import pickle
 from typing import Optional
 
@@ -27,7 +27,7 @@ class IMDBReviews(Dataset):
             print(f)
             data = pickle.load(f)
 
-        self.reviews = torch.tensor(data['input_ids']) 
+        self.reviews = torch.tensor(data['input_ids'])
         self.masks = torch.tensor(data['attention_mask'])
         self.labels = torch.tensor(data['label'])
 
@@ -43,32 +43,32 @@ class IMDBReviews(Dataset):
         )
 
 class IMDBReviewsModule(pl.LightningDataModule):
-    
+
     def __init__(self, data_path : str, batch_size : int = 32):
         super().__init__()
         self.data_path = os.path.join(data_path, "processed")
         self.batch_size = batch_size
         self.cpu_cnt = os.cpu_count() or 2
-    
+
     def prepare_data(self) -> None:
         if not os.path.isdir(self.data_path):
             raise Exception("Data not prepared")
-    
+
     def setup(self, stage : Optional[str] = None) -> None:
         self.trainset = IMDBReviews(self.data_path, "train")
         self.testset = IMDBReviews(self.data_path, "test")
         self.evalset = IMDBReviews(self.data_path, "eval")
-        
+
     def train_dataloader(self) -> DataLoader:
         return DataLoader(
             self.trainset, batch_size = self.batch_size, num_workers=self.cpu_cnt, persistent_workers=True,
         )
-    
+
     def test_dataloader(self) -> DataLoader:
         return DataLoader(
             self.testset, batch_size = self.batch_size, num_workers=self.cpu_cnt, persistent_workers=True,
         )
-    
+
     def val_dataloader(self) -> DataLoader:
         return DataLoader(
             self.evalset, batch_size=self.batch_size, num_workers=self.cpu_cnt, persistent_workers=True,

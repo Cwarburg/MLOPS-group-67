@@ -1,7 +1,7 @@
 from datasets import load_dataset
 from transformers import AutoTokenizer, DataCollatorWithPadding, AutoModelForSequenceClassification, TrainingArguments, Trainer
 from transformers import pipeline
-import evaluate 
+import evaluate
 import numpy as np
 
 
@@ -26,13 +26,13 @@ accuracy = evaluate.load("accuracy")
 id2label = {0 : "NEGATIVE", 1 : "POSITIVE"}
 label2id = {"NEGATIVE" : 0, "POSITIVE" : 1}
 
-model = AutoModelForSequenceClassification.from_pretrained("distilbert/distilbert-base-uncased", num_labels = 2, id2label = id2label, label2id = label2id) 
+model = AutoModelForSequenceClassification.from_pretrained("distilbert/distilbert-base-uncased", num_labels = 2, id2label = id2label, label2id = label2id)
 
 training_args = TrainingArguments(
     output_dir="imdb_classifier",
     learning_rate=2e-5,
-    per_device_train_batch_size=16, 
-    per_device_eval_batch_size=16, 
+    per_device_train_batch_size=16,
+    per_device_eval_batch_size=16,
     num_train_epochs=2,
     weight_decay=0.01,
     eval_strategy="epoch",
@@ -42,14 +42,13 @@ training_args = TrainingArguments(
 )
 
 trainer = Trainer(
-    model = model, 
+    model = model,
     args=training_args,
     train_dataset=tokenized_imdb["train"],
-    eval_dataset=tokenized_imdb["test"], 
-    processing_class=tokenizer, 
+    eval_dataset=tokenized_imdb["test"],
+    processing_class=tokenizer,
     data_collator=data_collator,
     compute_metrics=compute_metrics,
 )
 
 trainer.train()
-

@@ -38,7 +38,3 @@ plt.xlabel('Sentiment')
 plt.ylabel('Count')
 plt.xticks(ticks=[0, 1], labels=['Negative', 'Positive'], rotation=0)
 plt.show()
-
-
-
-

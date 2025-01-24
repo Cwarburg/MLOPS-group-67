@@ -16,11 +16,11 @@ def load_imdb_dataset(config : DictConfig) -> None :
 
     dataset_path = os.path.join(hydra.utils.get_original_cwd(), config.data.path)
     imdb = load_dataset("imdb")
-    tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased") # TODO: get from config file instead of passed string 
+    tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased") # TODO: get from config file instead of passed string
 
     def preprocess_function(examples):
         return tokenizer(examples["text"], padding = 'max_length', truncation = True)
-    
+
     tokenized_imdb = imdb.map(preprocess_function, batched=True) # Has features : text, label, input_ids, attention_mask
 
 
