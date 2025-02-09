@@ -173,10 +173,14 @@ s204701, s225083, sXXXXXX
 > Recommended answer length: 100-200 words.
 > Answer:
 
-To accurately classify the IMDB movie reviews, we used the [Transformers](https://huggingface.co/docs/transformers/en/index)
-framework by huggingface. This framework allowed us to used a pretrained model which we could finetune, and also had a
-autotokenizer function which allowed us to effectevly convert the reviews to tokens. We experimented with some of the models, but ended
-up using the tiny-bert model, because of it's small easy that could be trained quickly and it still had good results.
+To accurately classify the IMDB movie reviews, we used the Transformers framework by
+huggingface. This framework allowed us to use a pretrained model which we could finetune,
+and also had an autotokenizer function which allowed us to effectively convert the reviews
+to tokens. We experimented with some of the models, but ended up using the tiny-bert
+model, because of its small size that could be trained quickly and it still had good results.
+It helped us complete project because it had valueable functions such as auto-tokenizer and
+pre-trained models such BERT for classification. This simplies the project giving us more
+time to focus on the MLOps part of the course.
 
 
 ## Coding environment
@@ -193,8 +197,7 @@ up using the tiny-bert model, because of it's small easy that could be trained q
 >
 > Answer:
 
-We used 'uv' to manage the dependencies. If a new group member were to join the project, they would have to run the command
-'uv venv', which looks at the 'pyproject.toml' file and copies the dependencies.
+We had all used conda before so we decided to use conda to manage our dependencies in the projet. We created a requirements file first with a simple `pip freeze \> requirements.txt`. However we realized that this created a rather large list that was quite difficult to quickly get an idea of the packages and versions required. Therefore, we changed to `pipreqs` which provides a far briefer list. We also made use of the built-in conda commands to export environments to .yml. When a new team member wanted to get an exact copy of our environment he could run `conda env create -f env.yml` to create the environment on their local machine. This could also be done using the command 'uv venv', which looks at the 'pyproject.toml' file and copies the dependencies.
 
 ### Question 5
 
@@ -227,7 +230,14 @@ Of all the folders under the cookie cutter template, many were left empty. We ma
 >
 > Answer:
 
---- question 6 fill here ---
+Yes, we used flake8 to highlight missing packages and unused variables to make sure to catch
+any errors in the early stages. Furthermore, we made sure to write meaningful comments
+in the codebase to emphasize and explain the code. We also made sure to keep the naming
+formatting consistent and clean, i.e keeping variables with underscores and lower lettering.
+Everytime to committed changes to the code we tried to write meaningfull commit mes-
+sages to ensure that everybody in the project know what had changed since last time.in
+larger projects, writing thorough documentation is extremely important so that there are no
+ambiguities on how the code is implemented and people can quickly get up to speed.
 
 ## Version control
 
@@ -246,7 +256,10 @@ Of all the folders under the cookie cutter template, many were left empty. We ma
 >
 > Answer:
 
---- question 7 fill here ---
+We implemented tests for the data and for the model. The test for the data ensures that the
+data exists, has the correct format and the correct size. The test for the model ensures that
+the model is found and loaded successfully, and that the output shape is correct i.e. binary
+since we’re dealing with classification.
 
 ### Question 8
 
@@ -261,7 +274,13 @@ Of all the folders under the cookie cutter template, many were left empty. We ma
 >
 > Answer:
 
---- question 8 fill here ---
+With the unit tests we had implemented locally, we managed to achieve a code coverage of
+77 percent. If our code did have a coverage close to 100% we would still not trust it to be
+error free, because code coverage does not guarantee that there are no bugs. Code coverage
+simply informs us on what percentage of our code gets run every time we run our tests. That
+means there can be some small cases that aren’t covered by our tests and would still result
+in a bug in certain situations. On the other hand, a high code coverage would still give us a
+good idea of how well our code is running although we cannot take it as face value.
 
 ### Question 9
 
@@ -276,7 +295,13 @@ Of all the folders under the cookie cutter template, many were left empty. We ma
 >
 > Answer:
 
---- question 9 fill here ---
+We used branches and pull requests in our workflow. Branching was helpful in allowing
+each team member to work on features by themselves to ensure that our main codebase
+remained stable. We typically created a new branch whenever we started work on a new
+feature or bug fix. Once the feature was completed and tested locally, we would merge the
+branch back into the main using a pull request. This will allow to verify if there was any
+merge conflict or issues. This process made it possible to roll back changes if necessary,
+without disrupting other parts of the codebase.
 
 ### Question 10
 
@@ -291,7 +316,12 @@ Of all the folders under the cookie cutter template, many were left empty. We ma
 >
 > Answer:
 
---- question 10 fill here ---
+We did not use DVC for managing data in our project. However, having version control
+for data can be very beneficial in situations where the dataset changes frequently. For
+example, if a new dataset version is released or if more samples are collected over time,
+version-controlling the data would allow us to trace how performance changes with each
+dataset update. Also, it would enable us to quickly revert to a previous dataset version if a
+newly introduced change or corruption unexpectedly makes the model perform worse.
 
 ### Question 11
 
@@ -308,7 +338,16 @@ Of all the folders under the cookie cutter template, many were left empty. We ma
 >
 > Answer:
 
---- question 11 fill here ---
+We made use of unittesting, linting and github actions for our code. We started by
+writing the unittest’s, and later implementing the github actions to make sure that every
+push to github is passing those tests. We also used flake8 to make sure our code stays ”clean”
+and to catch common pitfalls early. By running flake8 as part of our development routine
+, we maintain consistent formatting, avoid naming clashes, and prevent unused imports or
+variables from lingering in our repository.
+The unittesting was also something that we implemented to catch errors in the process
+of coding the project. This made sure that the data was on the correct format and that the
+model was applicable. Later, we used github actions which essentially runs our tests each
+time somebody pushes any changes to github.
 
 ## Running code and tracking experiments
 
@@ -327,8 +366,10 @@ Of all the folders under the cookie cutter template, many were left empty. We ma
 >
 > Answer:
 
-We use configuration files in order to run an experiment. We would go into the training configuration and define the necessary parameters.
-
+We used YAML configuration files alongside Hydra to define all our experiment parame-
+ters such as learning rate, batch size, model architecture (We experimented with multiple
+BERT models) at the start of each run. This approach let us cleanly separate code from
+configuration and made it easy to tweak hyperparameters without rewriting scripts.
 ### Question 13
 
 > **Reproducibility of experiments are important. Related to the last question, how did you secure that no information**
@@ -342,7 +383,13 @@ We use configuration files in order to run an experiment. We would go into the t
 >
 > Answer:
 
---- question 13 fill here ---
+To secure that no information get lost, we used hydra’s configuration file logging system.
+In that way, in the output of each run, we had the hydra configuration files logged so that
+whenever someone wanted to check a result, he could open the hydra config files that were
+used to produce a specific output model and then he could get the hyperparameters used for
+the training. However, we know that results in machine learning are largely related to the
+data used in training, which is why applying version control to our data is also a fundamental
+step of reproducibility in machine learning environments.
 
 ### Question 14
 
@@ -359,7 +406,18 @@ We use configuration files in order to run an experiment. We would go into the t
 >
 > Answer:
 
---- question 14 fill here ---
+• train/learningrate: How the learning rate changes over the course of training. Some
+runs use a scheduler that gradually lowers the learning rate, leading to different final
+values.
+• train/epoch: Tracks which epoch the model is in as training steps increase. It helps
+confirm that all runs complete the intended number of epochs.
+• train/loss: Shows how the loss decreases (generally) with more steps—lower loss indi-
+cates the model is learning effectively. A sharp drop at the beginning often means the
+model quickly adapts to the dataset.
+• Simply how many gradient-update steps have been performed. Useful for comparing
+runs with different batch sizes or epoch configurations.
+• train/gradnorm:Simply how many gradient-update steps have been performed. Useful
+for comparing runs with different batch sizes or epoch configurations.
 
 ### Question 15
 
@@ -378,8 +436,12 @@ For our project we built a docker file for our training file (train.py) using "d
 Where the train.dockerfile defines what we need to RUN/COPY and pip install for the train.py to work. We then tested the docker image in a docker container locally
 using the "docker desktop" app to make sure it worked.
 
---- question 15 fill here ---
-
+For our project we built a docker file for our training file (train.py) using:
+docker build -f dockerfiles/train.dockerfile . -t train:latest
+Where the train.dockerfile defines what we need to RUN/COPY and pip install for
+train.py to work on any pc. We then tested the docker image in a docker container locally
+using the Docker Desktop app to make sure it worked correctly. We ofcourse tested the
+dockerfiles on multiple pc’s and it worked, which is the point of dockerfiles.
 ### Question 16
 
 > **When running into bugs while trying to run your experiments, how did you perform debugging? Additionally, did you**
@@ -393,7 +455,12 @@ using the "docker desktop" app to make sure it worked.
 >
 > Answer:
 
-Usually, we use the VS Code debugger tool in order to debug our code. This allows us to step through the code line by line after specifying a line to stop at. Then we can also make use of the debug console to check the datatypes, sizes etc of variables. Unfortunately, we did not reach to perform any profiling on our code, however, given the time we would have started by profiling the data loading files because that is where we feel the highest bottle neck was.
+Usually, we use the VS Code debugger tool in order to debug our code. This allows us to
+step through the code line by line after specifying a line to stop at. Then we can also make
+use of the debug console to check the datatypes, sizes, etc. of variables. Unfortunately, we
+did not reach to perform any profiling on our code; however, given the time we would have
+started by profiling the data loading files because that is where we feel the highest bottleneck
+was.
 
 ## Working in the cloud
 
@@ -410,7 +477,13 @@ Usually, we use the VS Code debugger tool in order to debug our code. This allow
 >
 > Answer:
 
---- question 17 fill here ---
+We mainly made use/tried to make use of 3 GCP services, Buckets, compute engine and
+artifact registry. We used buckets to store things like our raw data, preprocessed data,
+model and api python scripts. The bucket just makes it easy for managing large data and
+easily sharing it in the team/group. We tried using the Compute Engine and successfully
+spun up a virtual machine with our environment, but making a training job was very difficult
+(and at times frustrating). One issue was matching CUDA and PyTorch versions with the
+VM’s GPU drivers
 
 ### Question 18
 
@@ -452,7 +525,7 @@ Usually, we use the VS Code debugger tool in order to debug our code. This allow
 >
 > Answer:
 
---- question 21 fill here ---
+We didnt use the GCP cloud build history
 
 ### Question 22
 
@@ -467,7 +540,14 @@ Usually, we use the VS Code debugger tool in order to debug our code. This allow
 >
 > Answer:
 
---- question 22 fill here ---
+We did not manage to train our model in the cloud using either the Compute Engine
+or Vertex AI. Initially, we attempted using the Compute Engine by spinning up a virtual
+machine with the necessary environment (Docker, CUDA drivers, etc.) and transferring
+our code to it. However, due to time constraints and some configuration hurdles—like
+setting up the correct machine images, installing compatible GPU drivers, and ensuring our
+Python dependencies worked seamlessly—we couldn’t finalize the training process before
+the deadline. It would have been smart to use the compute engine because it allows to use
+powerful GPUs, which is basically a must for training good models.
 
 ## Deployment
 
@@ -484,7 +564,13 @@ Usually, we use the VS Code debugger tool in order to debug our code. This allow
 >
 > Answer:
 
---- question 23 fill here ---
+In our api.py file we implemented an API for our prediction model with FastAPI. We
+use two endpoints: Firstly a root endpoint (@app.get) just to make sure the api is running
+and works. Mainly we include a /predict (@app.post to handle data submission) endpoint,
+which gets our predictions from the model. In the ”/predict” we load our model alongside
+the pretrained tokenizer. When we then send a request, in form of a text, to the /predict
+endpoint our api encodes the text into token IDs and attention masks. We make these into
+tensors (pytorch) and then pass them through our model to get a prediction (1 or 0).
 
 ### Question 24
 
@@ -500,7 +586,11 @@ Usually, we use the VS Code debugger tool in order to debug our code. This allow
 >
 > Answer:
 
---- question 24 fill here ---
+Yes, we managed to deploy our API locally. We used the FastAPI framework to achieve
+this. In that way we access the FastAPI interface on a localhost website. The code was very
+simple, we simply needed to load the deployable model from .pt file and set it in evaluation
+mode. Then we encode the text submitted to the API and pass it through our model and
+return the prediction of the model (1 if it’s positive or 0 if negative).
 
 ### Question 25
 
@@ -515,7 +605,14 @@ Usually, we use the VS Code debugger tool in order to debug our code. This allow
 >
 > Answer:
 
---- question 25 fill here ---
+Unfortunately, we did not reach to perform any unit testing on our API. There are two main
+types of test to perform: functionality and load. To test functionality, we can create a new
+client to send requests which test specific applications in our API. Then we can write tests
+using assert statements on the response from the API. For load testing we can use a service
+like locust. This will simulate several users to observe how the API deals with several users.
+However, for a local deployment, this doesn’t make a lot of sense because there won’t be
+many users at a time. However, for an API that is deployed on the cloud that several people
+can use at the same time, this is very important to test for.
 
 ### Question 26
 
@@ -530,7 +627,16 @@ Usually, we use the VS Code debugger tool in order to debug our code. This allow
 >
 > Answer:
 
---- question 26 fill here ---
+We did not manage to deploy monitoring. However, monitoring would help the longevity
+of our model because it allows us to keep track of the performance of our deployed model.
+We can both monitor classic DevOps performance so checking for errors in the operation
+of the applications, or ensuring that logs are being updated correctly so we know what is
+happening at a given moment, and monitoring how fast our application is working. In the
+case of MLOps, we would also monitor data drifting with the evidently framework. This
+occurs because if the model receives data that was outside its training scope, the distribution
+of a feature in the data will increase over time. Then using evidently, we can test for data
+drift and then perpetually retrain the model over time to ensure that the performance doesn’t
+degrade over time.
 
 ## Overall discussion of project
 
@@ -549,7 +655,11 @@ Usually, we use the VS Code debugger tool in order to debug our code. This allow
 >
 > Answer:
 
---- question 27 fill here ---
+We ended up spending 7.22 dollars in credit. We tried a bunch of different CPU’s and
+GPU’s which ended up being the most expensive. Bucket storage was not very expensive
+only 0.026 per Gigabyte per month. We would say that working in the cloud seems very
+beneficial and very important, but it was also very difficult to learn because there is so much
+information.
 
 ### Question 28
 
@@ -596,7 +706,17 @@ Usually, we use the VS Code debugger tool in order to debug our code. This allow
 >
 > Answer:
 
---- question 30 fill here ---
+The overall struggles of this project was mainly in the department
+of the cloud. It was a completely new thing for us, because we’ve only used the HPC on dtu
+and our local machines for training models. This was of course a fun thing to interact with,
+but there is so much information on the webpage of the cloud that we probably would need
+a bit more time to completely understand everything that’s going on with all the services
+to pick from. We tried to make use of the compute engine, but unfortunately we did not
+manage to train the model in the cloud. We also had some trouble with the last commit
+regarding the readme.md file of the project which did not go through and caused us a lot
+of stress 2 weeks after submission. We also had some trouble with pytest which was also
+completely new to us, but we managed to fix it after some research and trying different
+things.
 
 ### Question 31
 
