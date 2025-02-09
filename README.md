@@ -688,11 +688,7 @@ information.
 >
 > Recommended answer length: 200-400 words
 >
-> Example:
->
-> *The starting point of the diagram is our local setup, where we integrated ... and ... and ... into our code.*
-> *Whenever we commit code and push to GitHub, it auto triggers ... and ... . From there the diagram shows ...*
->
+
 > Answer:
 
 --- question 29 fill here ---
@@ -703,22 +699,9 @@ information.
 > **challenges?**
 >
 > Recommended answer length: 200-400 words.
->
-> Example:
-> *The biggest challenges in the project was using ... tool to do ... . The reason for this was ...*
->
 > Answer:
 
-The overall struggles of this project was mainly in the department
-of the cloud. It was a completely new thing for us, because we’ve only used the HPC on dtu
-and our local machines for training models. This was of course a fun thing to interact with,
-but there is so much information on the webpage of the cloud that we probably would need
-a bit more time to completely understand everything that’s going on with all the services
-to pick from. We tried to make use of the compute engine, but unfortunately we did not
-manage to train the model in the cloud. We also had some trouble with the last commit
-regarding the readme.md file of the project which did not go through and caused us a lot
-of stress 2 weeks after submission. We also had some trouble with pytest which was also
-completely new to us, but we managed to fix it after some research and trying different
+Our main struggles with the project were mostly related to deployment on the cloud. It was a very new topic for us, since we had mainly used the DTU HPC and our local machines for training and testing models in previous courses. It was fun for us to interact with, however we struggled with understanding all the information on the gcloud webdpage, and we would probably need more time to understand everything that's going on in the service. We mainly focused on using the compute engine to perform training but we were not able to. Furthermore, we had some bugs when trying to set up GitHub actions and we were getting some confusing error messages related to how the data was saved with the huggingface datasets library. This wasted a considerable amount of time and contributed to us having less time on other aspects of the course. The docker files were also difficult to test if they worked because of how long it took to create the images. Therefore, if there was one thing missing in the docker image created, fixing the error and testing it again was a significant time loss. Several other small issues arose during the project, to overcome them often times diligent debugging and then researching was sufficient to answer our questions. However, in certain cases we made use of the TAs that took the time to help us go through the issues and provide us with insights on how we can fix our errors. 
 things.
 
 ### Question 31
