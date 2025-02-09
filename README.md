@@ -510,7 +510,9 @@ VM’s GPU drivers
 >
 > Answer:
 
---- question 19 fill here ---
+
+<img width="632" alt="image" src="https://github.com/user-attachments/assets/255835d7-7aa3-437d-ac28-325680105fad" />
+
 
 ### Question 20
 
@@ -519,7 +521,8 @@ VM’s GPU drivers
 >
 > Answer:
 
---- question 20 fill here ---
+
+<img width="633" alt="image" src="https://github.com/user-attachments/assets/2ea0243a-d767-4e15-b0bc-86c0f85d7cb0" />
 
 ### Question 21
 
