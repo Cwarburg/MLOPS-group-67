@@ -405,17 +405,21 @@ step of reproducibility in machine learning environments.
 
 <img width="632" alt="image" src="https://github.com/user-attachments/assets/a48430c3-e347-4ab1-b446-b9ae436e8678" />
 
-• train/learningrate: How the learning rate changes over the course of training. Some
+- train/learningrate: How the learning rate changes over the course of training. Some
 runs use a scheduler that gradually lowers the learning rate, leading to different final
 values.
-• train/epoch: Tracks which epoch the model is in as training steps increase. It helps
+
+- train/epoch: Tracks which epoch the model is in as training steps increase. It helps
 confirm that all runs complete the intended number of epochs.
-• train/loss: Shows how the loss decreases (generally) with more steps—lower loss indi-
+
+- train/loss: Shows how the loss decreases (generally) with more steps—lower loss indi-
 cates the model is learning effectively. A sharp drop at the beginning often means the
 model quickly adapts to the dataset.
-• Simply how many gradient-update steps have been performed. Useful for comparing
+
+- Simply how many gradient-update steps have been performed. Useful for comparing
 runs with different batch sizes or epoch configurations.
-• train/gradnorm:Simply how many gradient-update steps have been performed. Useful
+
+- train/gradnorm:Simply how many gradient-update steps have been performed. Useful
 for comparing runs with different batch sizes or epoch configurations.
 
 ### Question 15
