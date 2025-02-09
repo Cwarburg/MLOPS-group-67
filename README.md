@@ -705,7 +705,6 @@ information.
 > Answer:
 
 Our main struggles with the project were mostly related to deployment on the cloud. It was a very new topic for us, since we had mainly used the DTU HPC and our local machines for training and testing models in previous courses. It was fun for us to interact with, however we struggled with understanding all the information on the gcloud webdpage, and we would probably need more time to understand everything that's going on in the service. We mainly focused on using the compute engine to perform training but we were not able to. Furthermore, we had some bugs when trying to set up GitHub actions and we were getting some confusing error messages related to how the data was saved with the huggingface datasets library. This wasted a considerable amount of time and contributed to us having less time on other aspects of the course. The docker files were also difficult to test if they worked because of how long it took to create the images. Therefore, if there was one thing missing in the docker image created, fixing the error and testing it again was a significant time loss. Several other small issues arose during the project, to overcome them often times diligent debugging and then researching was sufficient to answer our questions. However, in certain cases we made use of the TAs that took the time to help us go through the issues and provide us with insights on how we can fix our errors. 
-things.
 
 ### Question 31
 
@@ -714,12 +713,6 @@ things.
 >
 > Recommended answer length: 50-200 words.
 >
-> Example:
-> *Student sXXXXXX was in charge of developing of setting up the initial cookie cutter project and developing of the*
-> *docker containers for training our applications.*
-> *Student sXXXXXX was in charge of training our models in the cloud and deploying them afterwards.*
-> *All members contributed to code by...*
->
 > Answer:
 
-We all contributed equally to the project.
+We all worked together on most tasks but we each had certain tasks we took the lead on. Christian took the lead on the cloud tasks and setting up the weights and biases as well as the package management. Sofus focused on the FastAPI setup and the docker images. Lukas focused on the repo setup, the unit testing, and setting up the model using the pytorch lightning framework. For the most part we sat next to eachother and discussed most of the implementations and share common responsibility for all features/parts of the project.
