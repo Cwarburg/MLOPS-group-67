@@ -400,11 +400,10 @@ step of reproducibility in machine learning environments.
 >
 > Recommended answer length: 200-300 words + 1 to 3 screenshots.
 >
-> Example:
-> *As seen in the first image when have tracked ... and ... which both inform us about ... in our experiments.*
-> *As seen in the second image we are also tracking ... and ...*
->
+
 > Answer:
+
+<img width="632" alt="image" src="https://github.com/user-attachments/assets/a48430c3-e347-4ab1-b446-b9ae436e8678" />
 
 • train/learningrate: How the learning rate changes over the course of training. Some
 runs use a scheduler that gradually lowers the learning rate, leading to different final
